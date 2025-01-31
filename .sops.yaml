@@ -1,0 +1,10 @@
+keys:
+  - &users:
+    - &kamil-macro-system age149wrwu4hr66x33nu20ckzeetxesjuqk297ky2yp8carys0mxp43sd252d8
+
+creation_rules:
+
+  - path_regex: configs/nixos/modules/macro-system/secrets.yaml$
+    key_groups:
+    - age:
+      - *kamil-macro-system
