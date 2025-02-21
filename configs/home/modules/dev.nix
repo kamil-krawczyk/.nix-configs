@@ -41,7 +41,6 @@ with lib; {
           wget
 
           google-chrome
-          wireshark
 
           nil
           marksman
