@@ -115,11 +115,11 @@ in {
           includes = [
             {
               path = "~/.config/git/config.private";
-              condition = "gitdir:~/.dotfiles-nix";
+              condition = "gitdir:~/.dotfiles-nix/";
             }
             {
               path = "~/.config/git/config.private";
-              condition = "gitdir:~/.secrets-nix";
+              condition = "gitdir:~/.secrets-nix/";
             }
           ];
           extraConfig = {
