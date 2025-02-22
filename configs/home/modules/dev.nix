@@ -22,35 +22,38 @@ with lib; {
         strace
       ];
     })
-    {
+    (mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-linux") {
       home = {
         packages = with pkgs; [
-          bat
-          btop
-          coreutils
-          devenv
-          dig
-          jq
-          neofetch
-          netcat
-          nmap
-          ripgrep
-          rlwrap
-          socat
-          tcpdump
-          wget
-
           google-chrome
-
-          nil
-          marksman
-          vscode-langservers-extracted
         ];
 
         sessionVariables = {
           CHROME_EXECUTABLE = "${pkgs.google-chrome}/bin/google-chrome-stable";
         };
       };
+    })
+    {
+      home.packages = with pkgs; [
+        bat
+        btop
+        coreutils
+        devenv
+        dig
+        jq
+        neofetch
+        netcat
+        nmap
+        ripgrep
+        rlwrap
+        socat
+        tcpdump
+        wget
+
+        nil
+        marksman
+        vscode-langservers-extracted
+      ];
 
       programs = {
         bash.enable = true; # direnv requires newer bash

@@ -124,11 +124,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1740208008,
-        "narHash": "sha256-zOv4fmrGHi/b1qCCql8rSSEWUKasQv62qq22sR4kxQ8=",
+        "lastModified": 1740210559,
+        "narHash": "sha256-DybDPz/mRylRtKZDeZIxIimNqekQfnagkLFsrW+fzWE=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "6b60514c4e0bb971c530992b1aeef46381e536a4",
+        "rev": "0996d41f85a115c7443dc38e801ce5e4a5a63f2d",
         "type": "github"
       },
       "original": {
@@ -312,10 +312,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1740085049,
-        "narHash": "sha256-N7XVjJmPD7xPfXuOm0MKmFIlxqGVNSVvIbnPBayH5C4=",
+        "lastModified": 1740212949,
+        "narHash": "sha256-x201Y5QhwrhA1W8GZS2RQqrtm87igessREv+mZALt6c=",
         "ref": "main",
-        "rev": "7c0da7ec9b38f81add3a48bdeefd3f760fafe905",
+        "rev": "e7eb3a932c5e43c2a810af701a16d36ed41a8dac",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/kamil-krawczyk/.secrets-nix.git"

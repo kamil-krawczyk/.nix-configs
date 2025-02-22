@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   hostConfig,
@@ -22,11 +23,12 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
-    beeper
-    remmina
-    wireshark
-  ];
+  home.packages = with pkgs;
+    [
+      remmina
+      wireshark
+    ]
+    ++ lib.lists.optionals (pkgs.stdenv.hostPlatform.system != "aarch64-linux") [beeper];
 
   programs = {
     git = {

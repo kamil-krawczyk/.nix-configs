@@ -64,7 +64,7 @@
         modules = [./configs/nixos/${hostname}];
       };
 
-    systems = ["aarch64-darwin" "x86_64-linux"];
+    systems = ["aarch64-darwin" "aarch64-linux" "x86_64-linux"];
 
     forEachSystem = pkgs:
       inputs.nixpkgs.lib.genAttrs systems
@@ -84,6 +84,9 @@
 
       # Work laptop: Dell Latitude E6320
       kiri = configureNixOS "kiri" "x86_64-linux";
+
+      # VM
+      taki = configureNixOS "taki" "aarch64-linux";
     };
 
     formatter = forEachSystem (pkgs: pkgs.alejandra);
