@@ -74,7 +74,7 @@ in {
 
         vscode = {
           enable = true;
-          extensions = with pkgs.vscode-extensions; [
+          profiles.default.extensions = with pkgs.vscode-extensions; [
             ban.spellright
             kamikillerto.vscode-colorize
             oderwat.indent-rainbow
