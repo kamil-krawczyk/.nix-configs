@@ -85,7 +85,7 @@
       # Work laptop: Dell Latitude E6320
       kiri = configureNixOS "kiri" "x86_64-linux";
 
-      # VM
+      # VM with work configuration
       taki = configureNixOS "taki" "aarch64-linux";
     };
 
