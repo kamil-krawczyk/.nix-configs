@@ -1,10 +1,13 @@
 {
+  config,
   lib,
   pkgs,
   hostConfig,
   ...
 }:
-with lib; {
+with lib; let
+  user = hostConfig.user."${config.home.username}";
+in {
   config = mkMerge [
     (mkIf (hostConfig.isLinux == false) {
       home.packages = with pkgs; [
@@ -34,26 +37,31 @@ with lib; {
       };
     })
     {
-      home.packages = with pkgs; [
-        bat
-        btop
-        coreutils
-        devenv
-        dig
-        jq
-        neofetch
-        netcat
-        nmap
-        ripgrep
-        rlwrap
-        socat
-        tcpdump
-        wget
+      home = {
+        packages = with pkgs; [
+          bat
+          btop
+          coreutils
+          devenv
+          dig
+          jq
+          neofetch
+          netcat
+          nmap
+          ripgrep
+          rlwrap
+          socat
+          tcpdump
+          wget
 
-        nil
-        marksman
-        vscode-langservers-extracted
-      ];
+          nil
+          marksman
+          vscode-langservers-extracted
+        ];
+        sessionVariables = {
+          EMAIL = "${user.email}";
+        };
+      };
 
       programs = {
         bash.enable = true; # direnv requires newer bash
