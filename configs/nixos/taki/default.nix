@@ -42,5 +42,9 @@ in {
 
   home-manager.users.kamil = import ../../home/kamil_macro-system;
 
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+  services.spice-webdavd.enable = true;
+
   system.stateVersion = "24.11";
 }
