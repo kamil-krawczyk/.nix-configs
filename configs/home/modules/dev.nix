@@ -74,24 +74,27 @@ in {
 
         vscode = {
           enable = true;
-          profiles.default.extensions = with pkgs.vscode-extensions; [
-            kamikillerto.vscode-colorize
-            oderwat.indent-rainbow
+          profiles.default.extensions = with pkgs.vscode-extensions;
+            [
+              kamikillerto.vscode-colorize
+              oderwat.indent-rainbow
 
-            mkhl.direnv
+              mkhl.direnv
 
-            bierner.markdown-checkbox
-            bierner.markdown-emoji
-            bierner.markdown-mermaid
-            bierner.markdown-preview-github-styles
+              bierner.markdown-checkbox
+              bierner.markdown-emoji
+              bierner.markdown-mermaid
+              bierner.markdown-preview-github-styles
 
-            bbenoist.nix
-            dart-code.flutter
-            golang.go
-            ms-python.python
-            ms-vscode.cpptools-extension-pack
-            svelte.svelte-vscode
-          ];
+              bbenoist.nix
+              dart-code.flutter
+              golang.go
+              ms-python.python
+              ms-vscode.cpptools-extension-pack
+              svelte.svelte-vscode
+            ]
+            # Spell Right doesn't work in Linux
+            ++ lib.lists.optionals (hostConfig.isLinux == false) [ban.spellright];
         };
       };
     }
