@@ -42,7 +42,6 @@ in {
           bat
           btop
           coreutils
-          devenv
           dig
           jq
           neofetch
