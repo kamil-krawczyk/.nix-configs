@@ -15,7 +15,7 @@
     };
 
     secrets = {
-      url = "git+ssh://git@github.com/kamil-krawczyk/.secrets-nix.git?ref=main&shallow=1";
+      url = "git+ssh://git@github.com/kamil-krawczyk/.secrets-nix.git?shallow=true";
       flake = false;
     };
 
