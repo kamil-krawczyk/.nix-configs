@@ -41,6 +41,7 @@ in {
         ltrace
         strace
 
+        drawio
         remmina
         wireshark
       ]
