@@ -5,7 +5,8 @@
   inputs,
   hostConfig,
   ...
-}: let
+}:
+with lib; let
   user = hostConfig.user."${config.home.username}";
 in {
   imports = [
@@ -24,11 +25,8 @@ in {
   };
 
   home.packages = with pkgs;
-    [
-      remmina
-      wireshark
-    ]
-    ++ lib.lists.optionals (pkgs.stdenv.hostPlatform.system != "aarch64-linux") [beeper];
+    []
+    ++ lists.optionals (pkgs.stdenv.hostPlatform.system != "aarch64-linux") [beeper];
 
   programs = {
     git = {

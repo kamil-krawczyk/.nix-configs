@@ -12,15 +12,6 @@ with lib; let
   sshConfigPath = "${builtins.toString inputs.secrets}/${user.profile}/ssh-client-config";
 in {
   config = mkMerge [
-    {
-      home.file = {
-        ".ssh/allowed_signers".text = "${user.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
-        ".config/git/config.private".text = "[user]\n\tname = \"Kamil Krawczyk\"\n\temail = \"kamil.krawczyk87@gmail.com\"\n";
-      };
-    }
-    (mkIf (builtins.pathExists sshConfigPath) {
-      home.file.".ssh/config".text = "${builtins.readFile sshConfigPath}";
-    })
     ### linux #################################################################
     (mkIf (hostConfig.isLinux) {
       fonts.fontconfig.enable = true;
@@ -98,8 +89,18 @@ in {
         };
       };
     })
+
     ### shared ################################################################
     {
+      home.file =
+        {
+          ".ssh/allowed_signers".text = "${user.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
+          ".config/git/config.private".text = "[user]\n\tname = \"Kamil Krawczyk\"\n\temail = \"kamil.krawczyk87@gmail.com\"\n";
+        }
+        // attrsets.optionalAttrs (builtins.pathExists sshConfigPath) {
+          ".ssh/config".text = "${builtins.readFile sshConfigPath}";
+        };
+
       programs = {
         home-manager.enable = true;
 
