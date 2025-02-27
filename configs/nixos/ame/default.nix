@@ -19,6 +19,7 @@ in {
     inputs.hardware.nixosModules.common-cpu-amd-zenpower
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.gigabyte-b650
   ];
 
   boot = {
