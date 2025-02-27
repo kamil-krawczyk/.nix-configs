@@ -49,6 +49,10 @@ in {
         google-chrome
       ];
 
+    sessionPath = [
+      "${config.home.homeDirectory}/.flutter_sdk/flutter_3.29.0/bin"
+    ];
+
     sessionVariables =
       attrsets.optionalAttrs (hostConfig.isLinux == true) {
         EMAIL = "${user.email}";
