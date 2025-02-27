@@ -56,6 +56,7 @@ in {
           button-layout = "appmenu:minimize,maximize,close";
         };
         "org/gnome/mutter" = {
+          center-new-windows = true;
           dynamic-workspaces = true;
           edge-tiling = true;
         };
