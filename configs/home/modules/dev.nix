@@ -49,9 +49,9 @@ in {
         google-chrome
       ];
 
-    sessionPath = [
-      "${config.home.homeDirectory}/.flutter_sdk/flutter_3.29.0/bin"
-    ];
+    sessionPath =
+      []
+      ++ lists.optionals (hostConfig.isLinux == false) ["${config.home.homeDirectory}/.flutter_sdk/flutter_3.29.0/bin"];
 
     sessionVariables =
       attrsets.optionalAttrs (hostConfig.isLinux == true) {
