@@ -44,6 +44,7 @@ in {
       "Affinity Photo 2: Image Editor" = 1616822987;
       "Affinity Publisher 2" = 1606941598;
       "Amphetamine" = 937984704;
+      "GIPHY Capture. The GIF Maker" = 668208984;
       "Xcode" = 497799835;
     };
   };
