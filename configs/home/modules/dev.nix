@@ -80,6 +80,9 @@ in {
 
           mkhl.direnv
 
+          eamodio.gitlens
+          ms-vscode.makefile-tools
+
           bierner.markdown-checkbox
           bierner.markdown-emoji
           bierner.markdown-mermaid
