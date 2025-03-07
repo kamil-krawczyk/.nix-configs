@@ -91,6 +91,9 @@ in {
           ms-python.python
           ms-vscode.cpptools-extension-pack
           svelte.svelte-vscode
+
+          github.copilot
+          github.copilot-chat
         ]
         # I can't get "Spell Right" to work properly in NixOS
         ++ lists.optionals (hostConfig.isLinux == false) [ban.spellright];
