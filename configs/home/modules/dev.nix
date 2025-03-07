@@ -73,8 +73,8 @@ in {
 
     vscode = {
       enable = true;
-      profiles.default.extensions = with pkgs.vscode-extensions;
-        [
+      profiles.default = {
+        extensions = with pkgs.vscode-extensions; [
           streetsidesoftware.code-spell-checker
 
           kamikillerto.vscode-colorize
@@ -96,6 +96,11 @@ in {
           github.copilot
           github.copilot-chat
         ];
+        userSettings = {
+          "cSpell.language" = "pl,en";
+          "extensions.ignoreRecommendations" = true;
+        };
+      };
     };
   };
 }
