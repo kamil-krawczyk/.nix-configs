@@ -99,6 +99,17 @@ in {
         userSettings = {
           "cSpell.language" = "pl,en";
           "extensions.ignoreRecommendations" = true;
+          "git.autofetch" = true;
+          "git.enableSmartCommit" = true;
+          "git.openRepositoryInParentFolders" = "always";
+          "[dart]" = {
+            "editor.formatOnSave" = true;
+            "editor.formatOnType" = true;
+            "editor.rulers" = [80];
+            "editor.selectionHighlight" = false;
+            "editor.tabCompletion" = "onlySnippets";
+            "editor.wordBasedSuggestions" = "off";
+          };
         };
       };
     };
