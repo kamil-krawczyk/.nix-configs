@@ -75,13 +75,12 @@ in {
       enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions;
         [
+          streetsidesoftware.code-spell-checker
+
           kamikillerto.vscode-colorize
           oderwat.indent-rainbow
 
           mkhl.direnv
-
-          eamodio.gitlens
-          ms-vscode.makefile-tools
 
           bierner.markdown-checkbox
           bierner.markdown-emoji
@@ -93,13 +92,10 @@ in {
           golang.go
           ms-python.python
           ms-vscode.cpptools-extension-pack
-          svelte.svelte-vscode
 
           github.copilot
           github.copilot-chat
-        ]
-        # I can't get "Spell Right" to work properly in NixOS
-        ++ lists.optionals (hostConfig.isLinux == false) [ban.spellright];
+        ];
     };
   };
 }
