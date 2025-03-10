@@ -97,12 +97,6 @@ in {
           github.copilot-chat
         ];
         userSettings = {
-          "workbench.colorTheme" = "Default Light Modern";
-          "extensions.ignoreRecommendations" = true;
-          "cSpell.language" = "pl,en";
-          "git.autofetch" = true;
-          "git.enableSmartCommit" = true;
-          "git.openRepositoryInParentFolders" = "always";
           "[dart]" = {
             "editor.formatOnSave" = true;
             "editor.formatOnType" = true;
@@ -111,6 +105,12 @@ in {
             "editor.tabCompletion" = "onlySnippets";
             "editor.wordBasedSuggestions" = "off";
           };
+          "cSpell.language" = "pl,en";
+          "editor.fontFamily" = "'JetBrainsMono NF', 'Droid Sans Mono', 'monospace', monospace";
+          "extensions.ignoreRecommendations" = true;
+          "git.autofetch" = true;
+          "git.enableSmartCommit" = true;
+          "git.openRepositoryInParentFolders" = "always";
         };
       };
     };
