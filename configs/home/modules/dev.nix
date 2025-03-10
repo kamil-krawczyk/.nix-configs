@@ -75,12 +75,9 @@ in {
       enable = true;
       profiles.default = {
         extensions = with pkgs.vscode-extensions; [
-          streetsidesoftware.code-spell-checker
-
-          kamikillerto.vscode-colorize
-          oderwat.indent-rainbow
-
           mkhl.direnv
+          oderwat.indent-rainbow
+          streetsidesoftware.code-spell-checker
 
           bierner.markdown-checkbox
           bierner.markdown-emoji
