@@ -97,8 +97,9 @@ in {
           github.copilot-chat
         ];
         userSettings = {
-          "cSpell.language" = "pl,en";
+          "workbench.colorTheme" = "Default Light Modern";
           "extensions.ignoreRecommendations" = true;
+          "cSpell.language" = "pl,en";
           "git.autofetch" = true;
           "git.enableSmartCommit" = true;
           "git.openRepositoryInParentFolders" = "always";
