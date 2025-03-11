@@ -16,36 +16,15 @@ in {
     (mkIf (hostConfig.isLinux) {
       fonts.fontconfig.enable = true;
 
-      home = {
-        packages = with pkgs; [
-          evince
-          firefox
-          gimp
-          inkscape
-          libreoffice
+      home.packages = with pkgs; [
+        evince
+        firefox
+        gimp
+        inkscape
+        libreoffice
 
-          nerd-fonts.jetbrains-mono
-        ];
-        sessionVariables.GTK_THEME = "WhiteSur-Light";
-      };
-
-      gtk = {
-        enable = true;
-        iconTheme = {
-          name = "WhiteSur-light";
-          package = pkgs.whitesur-icon-theme.override {
-            alternativeIcons = true;
-          };
-        };
-        theme = {
-          name = "WhiteSur-Light";
-          package = pkgs.whitesur-gtk-theme;
-        };
-        cursorTheme = {
-          name = "WhiteSur-cursors";
-          package = pkgs.whitesur-cursors;
-        };
-      };
+        nerd-fonts.jetbrains-mono
+      ];
 
       dconf.settings = {
         "org/gnome/desktop/media-handling" = {
@@ -69,9 +48,6 @@ in {
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "weatheroclock@CleoMenezesJr.github.io"
           ];
-        };
-        "org/gnome/shell/extensions/user-theme" = {
-          name = "WhiteSur-Light";
         };
         "org/gnome/shell/extensions/nightthemeswitcher/time" = {
           manual-schedule = false;

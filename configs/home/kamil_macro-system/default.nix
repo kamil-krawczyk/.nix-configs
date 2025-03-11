@@ -19,14 +19,55 @@ in {
     homeDirectory = "/home/kamil";
     stateVersion = hostConfig.user."kamil".stateVersion;
 
+    packages = with pkgs;
+      []
+      ++ lists.optionals (pkgs.stdenv.hostPlatform.system != "aarch64-linux") [beeper];
+
     sessionVariables = {
       GOPRIVATE = "git-server.macro2.local/*";
+      GTK_THEME = "Colloid-Teal-Dark-Compact-Catppuccin";
     };
   };
 
-  home.packages = with pkgs;
-    []
-    ++ lists.optionals (pkgs.stdenv.hostPlatform.system != "aarch64-linux") [beeper];
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Colloid-Teal-Catppuccin";
+      package = pkgs.colloid-icon-theme.override {
+        schemeVariants = ["catppuccin"];
+        colorVariants = ["teal"];
+      };
+    };
+    theme = {
+      name = "Colloid-Teal-Dark-Compact-Catppuccin";
+      package = pkgs.colloid-gtk-theme.override {
+        themeVariants = ["teal"];
+        colorVariants = ["dark"];
+        sizeVariants = ["compact"];
+        tweaks = ["catppuccin"];
+      };
+    };
+    cursorTheme = {
+      name = "BreezeX-RosePineDawn-Linux";
+      package = pkgs.rose-pine-cursor;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Colloid-Teal-Dark-Compact-Catppuccin";
+    };
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "org.gnome.Nautilus.desktop"
+        "thunderbird.desktop"
+        "beeper.desktop"
+        "firefox.desktop"
+        "code.desktop"
+        "org.gnome.Console.desktop"
+      ];
+    };
+  };
 
   programs = {
     git = {
@@ -108,19 +149,6 @@ in {
           "mail.identity.id_${id}.sig_bottom" = false;
         };
       };
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "org.gnome.Nautilus.desktop"
-        "thunderbird.desktop"
-        "beeper.desktop"
-        "firefox.desktop"
-        "code.desktop"
-        "org.gnome.Console.desktop"
-      ];
     };
   };
 }
