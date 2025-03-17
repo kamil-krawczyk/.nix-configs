@@ -28,6 +28,9 @@ in {
         marksman
         nil
         vscode-langservers-extracted
+
+        gh
+        gh-copilot
       ]
       ++ lists.optionals (hostConfig.isLinux == false) [
         iterm2
