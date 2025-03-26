@@ -9,6 +9,7 @@ in {
     ./hardware-configuration.nix
     ../modules/core.nix
     ../modules/podman.nix
+    ../modules/libvirtd.nix
     ../modules/macro-system/vpn.nix
     ../modules/macro-system/wireless.nix
 
