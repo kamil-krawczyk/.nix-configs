@@ -65,6 +65,8 @@ in {
       persistent-apps = [
         "/System/Applications/Launchpad.app"
         "/System/Applications/Mail.app"
+        "/System/Applications/FaceTime.app"
+        "/System/Applications/Messages.app"
         "/Applications/Beeper.app"
         "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
         "${pkgs.vscode}/Applications/Visual Studio Code.app"
