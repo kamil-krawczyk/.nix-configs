@@ -25,6 +25,7 @@ in {
         tcpdump
         wget
 
+        bash-language-server
         marksman
         nil
         vscode-langservers-extracted
