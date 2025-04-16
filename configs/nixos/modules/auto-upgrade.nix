@@ -14,7 +14,7 @@ in {
     persistent = true;
     dates = "06:00";
     flags = ["--refresh"];
-    flake = "github:kamil-krawczyk/.dotfiles-nix";
+    flake = "github:kamil-krawczyk/.nix-configs";
   };
 
   # Only run if current config (self) is older than the new one.
