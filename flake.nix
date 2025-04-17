@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    secrets = {
-      url = "git+ssh://git@github.com/kamil-krawczyk/.secrets-nix.git?shallow=true";
-      flake = false;
-    };
-
     ### MacOS specific ########################################################
     nix-darwin = {
       url = "github:LnL7/nix-darwin";

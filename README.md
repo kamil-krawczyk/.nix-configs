@@ -48,10 +48,8 @@ using Nix. However, I advise against trying to use it directly. If you want
 to use this project as a base, follow these steps:
 
 1. Copy the project to a new repository.
-2. Remove the `secrets` _input_ from the **flake.nix** file. This _input_ leads
-to my private repository, inaccessible to unauthorized persons.
-3. Remove or modify the code that uses the `secrets` _input_.
-4. For **nix-darwin** configurations, remove the entries related to installing
+2. Remove or modify the code that uses the secrets.
+3. For **nix-darwin** configurations, remove the entries related to installing
 applications from the Apple Store (`homebrew.masApps`). This configuration snippet
 is likely to work only if the user is logged into an Apple account that has
 purchased all the applications listed in `homebrew.masApps`.

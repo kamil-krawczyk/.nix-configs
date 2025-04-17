@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  secretsPath = "${builtins.toString inputs.secrets}/macro-system/secrets.yaml";
+  secretsPath = "${builtins.toString inputs.self}/configs/nixos/modules/macro-system/secrets.yaml";
 in {
   sops = {
     defaultSopsFile = secretsPath;

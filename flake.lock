@@ -305,26 +305,7 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_4",
-        "secrets": "secrets",
         "sops-nix": "sops-nix"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740562531,
-        "narHash": "sha256-x201Y5QhwrhA1W8GZS2RQqrtm87igessREv+mZALt6c=",
-        "ref": "refs/heads/master",
-        "rev": "6c94d99d0ff721cba7e83393225b65b362a7f341",
-        "revCount": 1,
-        "shallow": false,
-        "type": "git",
-        "url": "ssh://git@github.com/kamil-krawczyk/.secrets-nix.git"
-      },
-      "original": {
-        "shallow": false,
-        "type": "git",
-        "url": "ssh://git@github.com/kamil-krawczyk/.secrets-nix.git"
       }
     },
     "sops-nix": {

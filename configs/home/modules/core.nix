@@ -9,7 +9,6 @@
 with lib; let
   user = hostConfig.user."${config.home.username}";
   sshPubKeyPath = "${inputs.self}/configs/home/${config.home.username}_${user.profile}/id_ed25519.pub";
-  sshConfigPath = "${builtins.toString inputs.secrets}/${user.profile}/ssh-client-config";
 in {
   config = mkMerge [
     ### linux #################################################################
@@ -69,14 +68,10 @@ in {
 
     ### shared ################################################################
     {
-      home.file =
-        {
-          ".ssh/allowed_signers".text = "${user.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
-          ".config/git/config.private".text = "[user]\n\tname = \"Kamil Krawczyk\"\n\temail = \"kamil.krawczyk87@gmail.com\"\n";
-        }
-        // attrsets.optionalAttrs (builtins.pathExists sshConfigPath) {
-          ".ssh/config".text = "${builtins.readFile sshConfigPath}";
-        };
+      home.file = {
+        ".ssh/allowed_signers".text = "${user.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
+        ".config/git/config.private".text = "[user]\n\tname = \"Kamil Krawczyk\"\n\temail = \"kamil.krawczyk87@gmail.com\"\n";
+      };
 
       programs = {
         home-manager.enable = true;
