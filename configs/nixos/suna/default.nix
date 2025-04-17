@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ../modules/core.nix
-    ../modules/auto-upgrade.nix
 
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-gpu-intel-kaby-lake
