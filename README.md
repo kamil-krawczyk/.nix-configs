@@ -1,3 +1,7 @@
+# :warning: Archived Project
+
+This project has been archived because I have transitioned to Fedora with Home Manager in standalone mode for various reasons.
+
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
 # :snowflake: Nix-based Host Configurations
