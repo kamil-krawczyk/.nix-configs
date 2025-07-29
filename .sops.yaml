@@ -1,0 +1,11 @@
+keys:
+  - &ame  age1snrwp6r2w5thcpxawt7qhmhsller5ryauj4dwurp260df80z4y7s0ar39w
+  - &kiri age1k5fprqrh54gw2tpvz8u9ws0my6chjyqh4065qv8wkh49rm3kdgvqlfnek0
+
+creation_rules:
+
+  - path_regex: macro-system/secrets.yaml$
+    key_groups:
+    - age:
+      - *ame
+      - *kiri
