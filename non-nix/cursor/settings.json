@@ -1,0 +1,14 @@
+{
+    "window.commandCenter": true,
+    "git.openRepositoryInParentFolders": "never",
+    "remote.SSH.remotePlatform": {
+        "ame": "linux"
+    },
+    "git.autofetch": true,
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "window.autoDetectColorScheme": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.lineNumbers": "relative"
+}
