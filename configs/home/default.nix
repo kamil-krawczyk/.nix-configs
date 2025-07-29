@@ -183,6 +183,10 @@ in {
     nix-direnv.enable = true;
   };
 
+  ### vscode ##################################################################
+
+  programs.vscode.enable = true;
+
   ### packages ################################################################
 
   home.packages = with pkgs; [

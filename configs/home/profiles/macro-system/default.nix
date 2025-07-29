@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   inputs,
   ...
 }: {
@@ -21,6 +22,12 @@
   };
 
   programs.element-desktop.enable = true;
+
+  ### packages ################################################################
+
+  home.packages = with pkgs; [
+    yed
+  ];
 
   ### email ###################################################################
 
