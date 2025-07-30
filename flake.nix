@@ -40,6 +40,9 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     nixosConfigurations = {
+      # Work desktop: AMD Ryzen 9 7900 12-Core; Gigabyte B650M DS3H
+      ame = configureNixOS "ame" "x86_64-linux";
+
       # Work laptop: Dell Latitude E6320
       kiri = configureNixOS "kiri" "x86_64-linux";
     };
