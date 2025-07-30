@@ -194,6 +194,7 @@ in {
 
     hunspellDicts.en_US
     hunspellDicts.pl_PL
+    openssl
     unzip
   ];
 }
