@@ -21,8 +21,6 @@
     };
   };
 
-  programs.element-desktop.enable = true;
-
   ### packages ################################################################
 
   home.packages = with pkgs; [
