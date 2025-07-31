@@ -192,9 +192,11 @@ in {
   home.packages = with pkgs; [
     libreoffice
 
+    openssl
+    ripgrep
+    unzip
+
     hunspellDicts.en_US
     hunspellDicts.pl_PL
-    openssl
-    unzip
   ];
 }
