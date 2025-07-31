@@ -9,6 +9,9 @@
       EMAIL = "kkrawczyk@macrosystem.pl";
       GOPRIVATE = "git-server.macro2.local/*";
     };
+    packages = with pkgs; [
+      yed
+    ];
   };
 
   programs.git = {
@@ -20,12 +23,6 @@
       };
     };
   };
-
-  ### packages ################################################################
-
-  home.packages = with pkgs; [
-    yed
-  ];
 
   ### email ###################################################################
 
