@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     hunspellDicts.en_US
     hunspellDicts.pl_PL
