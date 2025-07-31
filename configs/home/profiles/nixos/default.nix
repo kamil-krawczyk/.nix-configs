@@ -1,4 +1,12 @@
 {
+  home.packages = with pkgs; [
+    hunspellDicts.en_US
+    hunspellDicts.pl_PL
+    libreoffice
+  ];
+
+  programs.firefox.enable = true;
+
   dconf.settings = {
     "org/gnome/desktop/media-handling" = {
       automount = false;
@@ -31,8 +39,6 @@
       theme = "night";
     };
   };
-
-  programs.firefox.enable = true;
 
   fonts.fontconfig.enable = true;
 }
