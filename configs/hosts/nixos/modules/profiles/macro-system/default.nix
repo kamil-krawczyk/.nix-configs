@@ -11,9 +11,14 @@ in {
     inputs.sops-nix.nixosModules.sops
   ];
 
-  networking.networkmanager.plugins = [
-    pkgs.networkmanager-openvpn
-  ];
+  networking = {
+    hosts = {
+      "192.168.21.37" = ["pam.skm.warszawa.pl"];
+    };
+    networkmanager.plugins = [
+      pkgs.networkmanager-openvpn
+    ];
+  };
 
   environment = {
     systemPackages = with pkgs; [
