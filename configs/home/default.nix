@@ -192,6 +192,7 @@ in {
   home.packages = with pkgs; [
     openssl
     ripgrep
+    p7zip
     unzip
   ];
 }
