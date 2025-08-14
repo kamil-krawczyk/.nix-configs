@@ -10,6 +10,7 @@
       GOPRIVATE = "git-server.macro2.local/*";
     };
     packages = with pkgs; [
+      remmina
       yed
     ];
   };
