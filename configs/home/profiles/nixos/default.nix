@@ -3,6 +3,7 @@
     hunspellDicts.en_US
     hunspellDicts.pl_PL
     libreoffice
+    google-chrome
   ];
 
   programs.firefox.enable = true;
