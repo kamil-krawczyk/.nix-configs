@@ -182,17 +182,4 @@ in {
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
-
-  ### vscode ##################################################################
-
-  programs.vscode.enable = true;
-
-  ### packages ################################################################
-
-  home.packages = with pkgs; [
-    openssl
-    ripgrep
-    p7zip
-    unzip
-  ];
 }

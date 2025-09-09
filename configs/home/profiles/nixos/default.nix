@@ -4,7 +4,14 @@
     hunspellDicts.pl_PL
     libreoffice
     google-chrome
+
+    openssl
+    ripgrep
+    p7zip
+    unzip
   ];
+
+  programs.vscode.enable = true;
 
   programs.firefox.enable = true;
 
