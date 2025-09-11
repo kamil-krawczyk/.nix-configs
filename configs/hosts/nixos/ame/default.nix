@@ -26,7 +26,7 @@
   host = {
     isDarwin = false;
     profile = "macro-system";
-    wwanIf = "wlp18s0u1u3";
+    wwanIf = "wlp15s0u6";
   };
 
   user.email = "kkrawczyk@macrosystem.pl";
