@@ -1,6 +1,7 @@
 {
   imports = [
     ../modules
+    ../modules/profiles/macro-system
   ];
 
   networking = {
