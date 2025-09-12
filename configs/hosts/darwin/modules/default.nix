@@ -36,6 +36,9 @@ in {
     git
     helix
     tmux
+
+    cocoapods
+    ruby
   ];
 
   ### homebrew ################################################################
@@ -101,6 +104,8 @@ in {
     };
     imports = [
       ../../../home
+      ../../../home/profiles/darwin
+      ../../../home/profiles/${config.host.profile}
     ];
   };
 }
