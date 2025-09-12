@@ -8,6 +8,7 @@
 
       git
       helix
+      tree
 
       alejandra
       nil

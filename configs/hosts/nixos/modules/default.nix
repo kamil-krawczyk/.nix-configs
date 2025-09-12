@@ -215,17 +215,11 @@
       homeDirectory = "/home/kamil";
       stateVersion = config.system.stateVersion;
     };
-    imports =
-      [
-        ../../../home
-        ../../../home/profiles/${config.host.profile}
-      ]
-      ++ lib.lists.optionals (config.host.isDarwin == true) [
-        ../../../home/profiles/darwin
-      ]
-      ++ lib.lists.optionals (config.host.isDarwin == false) [
-        ../../../home/profiles/nixos
-      ];
+    imports = [
+      ../../../home
+      ../../../home/profiles/nixos
+      ../../../home/profiles/${config.host.profile}
+    ];
   };
 
   ### misc ####################################################################
