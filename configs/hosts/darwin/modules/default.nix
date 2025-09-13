@@ -64,6 +64,8 @@ in {
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "visual-studio-code"
+      "logi-options+"
+      "wacom-tablet"
     ];
   };
 
