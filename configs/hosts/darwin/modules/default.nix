@@ -58,12 +58,14 @@ in {
     };
     brews = [
       "mas"
+      "btop"
       "ripgrep"
     ];
     casks = [
       "font-jetbrains-mono-nerd-font"
-      "google-chrome"
+      "iterm2"
       "visual-studio-code"
+      "google-chrome"
       "logi-options+"
       "wacom-tablet"
     ];

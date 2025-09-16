@@ -5,6 +5,7 @@
     libreoffice
     google-chrome
 
+    btop
     openssl
     ripgrep
     p7zip
