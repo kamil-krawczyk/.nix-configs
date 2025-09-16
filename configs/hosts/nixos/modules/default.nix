@@ -151,6 +151,7 @@
       git
       helix
       tmux
+      btop
 
       dconf
       dconf-editor
