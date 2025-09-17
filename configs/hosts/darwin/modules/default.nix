@@ -69,6 +69,7 @@ in {
       "google-chrome"
       "logi-options+"
       "wacom-tablet"
+      "utm"
     ];
   };
 
