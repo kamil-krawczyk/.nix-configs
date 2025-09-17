@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   inputs,
   hostConfig,
@@ -24,19 +23,15 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history.ignoreAllDups = true;
-      shellAliases =
-        {
-          l = "eza";
-          ls = "eza";
-          l1 = "eza -1";
-          ll = "eza -l";
-          la = "eza -la";
-          lt = "eza -T";
-          tree = "eza -T";
-        }
-        // lib.attrsets.optionalAttrs (hostConfig.isDarwin == true) {
-          docker = "podman";
-        };
+      shellAliases = {
+        l = "eza";
+        ls = "eza";
+        l1 = "eza -1";
+        ll = "eza -l";
+        la = "eza -la";
+        lt = "eza -T";
+        tree = "eza -T";
+      };
     };
 
     eza = {
