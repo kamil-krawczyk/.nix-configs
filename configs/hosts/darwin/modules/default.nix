@@ -60,6 +60,7 @@ in {
       "mas"
       "btop"
       "ripgrep"
+      "podman"
     ];
     casks = [
       "font-jetbrains-mono-nerd-font"
