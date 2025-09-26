@@ -57,19 +57,20 @@ in {
       upgrade = true;
     };
     brews = [
-      "mas"
       "btop"
-      "ripgrep"
+      "mas"
       "podman"
+      "ripgrep"
+      "wget"
     ];
     casks = [
       "font-jetbrains-mono-nerd-font"
-      "iterm2"
-      "visual-studio-code"
       "google-chrome"
+      "iterm2"
       "logi-options+"
-      "wacom-tablet"
       "utm"
+      "visual-studio-code"
+      "wacom-tablet"
     ];
   };
 

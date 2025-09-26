@@ -1,15 +1,15 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    btop
+    google-chrome
     hunspellDicts.en_US
     hunspellDicts.pl_PL
     libreoffice
-    google-chrome
-
-    btop
     openssl
-    ripgrep
     p7zip
+    ripgrep
     unzip
+    wget
   ];
 
   programs.vscode.enable = true;
