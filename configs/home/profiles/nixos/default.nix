@@ -5,6 +5,7 @@
     hunspellDicts.en_US
     hunspellDicts.pl_PL
     libreoffice
+    nodejs
     openssl
     p7zip
     ripgrep
