@@ -61,7 +61,6 @@ in {
       "mas"
       "podman"
       "ripgrep"
-      "secretive"
       "wget"
     ];
     casks = [
@@ -69,6 +68,7 @@ in {
       "google-chrome"
       "iterm2"
       "logi-options+"
+      "secretive"
       "utm"
       "visual-studio-code"
       "wacom-tablet"
