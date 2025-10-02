@@ -61,6 +61,7 @@ in {
       "mas"
       "podman"
       "ripgrep"
+      "secretive"
       "wget"
     ];
     casks = [
