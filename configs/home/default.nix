@@ -14,7 +14,6 @@ in {
     bash = {
       enable = true;
       enableCompletion = true;
-      shellAliases = config.programs.zsh.shellAliases;
     };
 
     zsh = {
@@ -36,7 +35,7 @@ in {
 
     eza = {
       enable = true;
-      enableBashIntegration = true;
+      enableBashIntegration = false;
       enableZshIntegration = true;
       git = true;
       colors = "auto";
@@ -56,7 +55,7 @@ in {
 
     oh-my-posh = {
       enable = true;
-      enableBashIntegration = true;
+      enableBashIntegration = false;
       enableZshIntegration = true;
       useTheme = "slimfat";
     };
