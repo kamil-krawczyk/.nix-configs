@@ -1,17 +1,22 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    btop
-    google-chrome
-    hunspellDicts.en_US
-    hunspellDicts.pl_PL
-    libreoffice
-    nodejs
-    openssl
-    p7zip
-    ripgrep
-    unzip
-    wget
-  ];
+{config, pkgs, ...}: {
+  home = {
+    packages = with pkgs; [
+      btop
+      google-chrome
+      hunspellDicts.en_US
+      hunspellDicts.pl_PL
+      libreoffice
+      nodejs
+      openssl
+      p7zip
+      ripgrep
+      unzip
+      wget
+    ];
+    sessionPath = [
+      "${config.home.homeDirectory}/.local/bin"
+    ];
+  };
 
   programs.vscode.enable = true;
 
