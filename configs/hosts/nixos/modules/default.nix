@@ -104,7 +104,7 @@
     enable = true;
     openFirewall = true;
     settings = {
-      # PasswordAuthentication = false;
+      PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
   };

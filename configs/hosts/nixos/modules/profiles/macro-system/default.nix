@@ -6,9 +6,17 @@
 }: let
   secretsPath = "${builtins.toString inputs.self}/configs/hosts/nixos/modules/profiles/macro-system/secrets.yaml";
   wwanIf = config.host.wwanIf;
+
+  sshPubKeyPathMcs = "${inputs.self}/configs/home/profiles/macro-system/id_ed25519.pub";
+  sshPubKeyPathPriv = "${inputs.self}/configs/home/profiles/private/id_ed25519.pub";
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
+  ];
+
+  users.users.kamil.openssh.authorizedKeys.keyFiles = [
+    sshPubKeyPathMcs
+    sshPubKeyPathPriv
   ];
 
   networking = {
