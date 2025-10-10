@@ -2,7 +2,6 @@
   home = {
     packages = with pkgs; [
       btop
-      google-chrome
       hunspellDicts.en_US
       hunspellDicts.pl_PL
       libreoffice
