@@ -68,7 +68,7 @@ in {
       "google-chrome"
       "iterm2"
       "logi-options+"
-      "secretive"
+      # "secretive"
       "utm"
       "visual-studio-code"
       "wacom-tablet"
