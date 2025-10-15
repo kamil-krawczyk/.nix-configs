@@ -12,6 +12,7 @@
       nodejs
       openssl
       p7zip
+      pwgen
       ripgrep
       unzip
       wget
