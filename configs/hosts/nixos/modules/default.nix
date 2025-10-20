@@ -206,6 +206,7 @@
       "scanner"
       "libvirtd"
       "podman"
+      "dialout"
     ];
   };
 
@@ -223,6 +224,8 @@
   };
 
   ### misc ####################################################################
+
+  users.groups.dialout = {};
 
   fonts.fontDir.enable = true;
 }
