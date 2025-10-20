@@ -16,7 +16,7 @@
   };
 
   programs.git = {
-    extraConfig = {
+    settings = {
       url = {
         "ssh://git-server.macro2.local/" = {
           insteadOf = "https://git-server.macro2.local/";

@@ -146,8 +146,15 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "Kamil Krawczyk";
-    userEmail = userConfig.email;
+    settings = {
+      user = {
+        name = "Kamil Krawczyk";
+        email = userConfig.email;
+      };
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      init.defaultBranch = "main";
+      merge.conflictstyle = "zdiff3";
+    };
     signing = {
       format = "ssh";
       key = "~/.ssh/id_ed25519.pub";
@@ -159,18 +166,17 @@ in {
         condition = "gitdir:~/.nix-configs/";
       }
     ];
-    extraConfig = {
-      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      init.defaultBranch = "main";
-      merge.conflictstyle = "zdiff3";
-    };
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        line-numbers = true;
-        side-by-side = true;
-      };
+  };
+
+  ### delta ###################################################################
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      side-by-side = false;
     };
   };
 
