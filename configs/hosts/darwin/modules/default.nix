@@ -58,10 +58,12 @@ in {
     };
     brews = [
       "btop"
+      "lrzsz"
       "mas"
       "podman"
       "ripgrep"
       "wget"
+      "zssh"
     ];
     casks = [
       "font-jetbrains-mono-nerd-font"

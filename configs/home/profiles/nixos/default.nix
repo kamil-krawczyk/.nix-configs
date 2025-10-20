@@ -10,6 +10,7 @@
       hunspellDicts.pl_PL
       libreoffice
       lrzsz
+      minicom
       nodejs
       openssl
       p7zip
