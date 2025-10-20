@@ -9,6 +9,7 @@
       hunspellDicts.en_US
       hunspellDicts.pl_PL
       libreoffice
+      lrzsz
       nodejs
       openssl
       p7zip
@@ -16,6 +17,7 @@
       ripgrep
       unzip
       wget
+      zssh
     ];
     sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
