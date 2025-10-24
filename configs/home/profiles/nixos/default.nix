@@ -14,8 +14,10 @@
       nodejs
       openssl
       p7zip
+      pv
       pwgen
       ripgrep
+      tcpdump
       unzip
       wget
       zssh
