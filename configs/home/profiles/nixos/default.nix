@@ -20,6 +20,7 @@
       tcpdump
       unzip
       wget
+      zip
       zssh
     ];
     sessionPath = [
