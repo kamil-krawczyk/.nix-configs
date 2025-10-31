@@ -69,11 +69,12 @@ in {
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "iterm2"
+      "libreoffice"
       "logi-options+"
-      # "secretive"
       "utm"
       "visual-studio-code"
       "wacom-tablet"
+      # "secretive"
     ];
   };
 
