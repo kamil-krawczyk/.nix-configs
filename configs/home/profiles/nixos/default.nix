@@ -8,7 +8,6 @@
       btop
       hunspellDicts.en_US
       hunspellDicts.pl_PL
-      ivyterm
       libreoffice
       lrzsz
       minicom
