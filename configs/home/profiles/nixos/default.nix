@@ -11,6 +11,7 @@
       libreoffice
       lrzsz
       minicom
+      nmap
       nodejs
       openssl
       p7zip
