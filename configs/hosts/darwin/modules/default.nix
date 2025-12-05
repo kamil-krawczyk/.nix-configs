@@ -58,6 +58,7 @@ in {
     };
     brews = [
       "btop"
+      "iproute2mac"
       "lrzsz"
       "mas"
       "podman"
