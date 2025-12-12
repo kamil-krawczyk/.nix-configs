@@ -6,6 +6,7 @@
   home = {
     packages = with pkgs; [
       btop
+      file
       hunspellDicts.en_US
       hunspellDicts.pl_PL
       libreoffice
@@ -17,6 +18,7 @@
       p7zip
       pv
       pwgen
+      rename
       ripgrep
       tcpdump
       unzip
