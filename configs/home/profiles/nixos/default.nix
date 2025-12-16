@@ -21,6 +21,7 @@
       rename
       ripgrep
       tcpdump
+      toybox
       unzip
       wget
       zip
