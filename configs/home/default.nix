@@ -176,7 +176,7 @@ in {
     options = {
       navigate = true;
       line-numbers = true;
-      side-by-side = false;
+      side-by-side = true;
     };
   };
 
