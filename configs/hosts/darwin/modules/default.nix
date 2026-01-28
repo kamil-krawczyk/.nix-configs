@@ -67,6 +67,7 @@ in {
       "zssh"
     ];
     casks = [
+      "antigravity"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "iterm2"
