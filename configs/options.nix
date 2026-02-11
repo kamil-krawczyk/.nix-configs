@@ -1,17 +1,9 @@
 {lib, ...}: {
   options = {
     host = {
-      isDarwin = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-      };
       profile = lib.mkOption {
         type = lib.types.str;
         default = "private";
-      };
-      wwanIf = lib.mkOption {
-        type = lib.types.str;
-        default = "";
       };
     };
     user = {

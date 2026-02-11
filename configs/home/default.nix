@@ -71,7 +71,7 @@ in {
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_frappe";
+      theme = "base16_default";
       editor = {
         auto-format = true;
         bufferline = "multiple";
@@ -187,4 +187,9 @@ in {
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+
+  ### other packages ##########################################################
+  home.packages = with pkgs; [
+    pywal
+  ];
 }

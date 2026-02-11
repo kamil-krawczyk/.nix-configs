@@ -73,10 +73,10 @@ in {
       "iterm2"
       "libreoffice"
       "logi-options+"
+      "tunnelblick"
       "utm"
       "visual-studio-code"
       "wacom-tablet"
-      # "secretive"
     ];
   };
 
