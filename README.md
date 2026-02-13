@@ -58,12 +58,12 @@ Please remember to take care of periodic Nix updates in this case:
 After installing Nix and downloading the repository with configuration, the
 first system rebuild should be done using the following command:
 
-    nix run nix-darwin/master#darwin-rebuild -- switch --flake .#<configuration>
+    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#<configuration>
 
 Further system rebuilds can be performed directly using the `darwin-rebuild`
 command:
 
-    darwin-rebuild switch --flake .#<configuration>
+    sudo darwin-rebuild switch --flake .#<configuration>
 
 # :pray: Acknowledgements
 
