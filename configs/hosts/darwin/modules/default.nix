@@ -70,6 +70,7 @@ in {
     ];
     casks = [
       "antigravity"
+      "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
