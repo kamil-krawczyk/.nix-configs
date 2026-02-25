@@ -69,7 +69,6 @@ in {
       "zssh"
     ];
     casks = [
-      "8bitdo-ultimate-software-v2"
       "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
