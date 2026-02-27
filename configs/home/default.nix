@@ -59,7 +59,7 @@ in {
       enable = true;
       enableBashIntegration = false;
       enableZshIntegration = true;
-      useTheme = "slimfat";
+      useTheme = "ys";
     };
   };
 
