@@ -58,6 +58,7 @@ in {
       upgrade = true;
     };
     brews = [
+      "bat"
       "btop"
       "go"
       "iproute2mac"
