@@ -80,6 +80,7 @@ in {
       "tunnelblick"
       "utm"
       "wacom-tablet"
+      "xquartz"
     ];
   };
 
