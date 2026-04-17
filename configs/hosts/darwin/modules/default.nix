@@ -65,6 +65,7 @@ in {
       "lrzsz"
       "mas"
       "podman"
+      "qemu"
       "ripgrep"
       "sevenzip"
       "wget"
