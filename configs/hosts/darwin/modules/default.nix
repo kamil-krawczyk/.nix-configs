@@ -79,6 +79,7 @@ in {
       "logi-options+"
       "tunnelblick"
       "utm"
+      "virtualbox"
       "wacom-tablet"
       "xquartz"
     ];
