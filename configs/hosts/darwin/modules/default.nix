@@ -66,6 +66,7 @@ in {
       "mas"
       "podman"
       "ripgrep"
+      "sevenzip"
       "wget"
       "zssh"
     ];
