@@ -22,7 +22,7 @@ in {
       syntaxHighlighting.enable = true;
       history.ignoreAllDups = true;
       initContent = ''
-        cat ~/.cache/wal/sequences
+        bindkey '^[[1;2C' forward-word
       '';
       shellAliases = {
         l = "eza";
@@ -183,6 +183,5 @@ in {
 
   ### packages ################################################################
   home.packages = with pkgs; [
-    pywal
   ];
 }
