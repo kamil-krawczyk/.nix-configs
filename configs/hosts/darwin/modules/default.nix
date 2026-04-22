@@ -60,6 +60,7 @@ in {
     brews = [
       "bat"
       "btop"
+      "fd"
       "go"
       "iproute2mac"
       "lrzsz"
