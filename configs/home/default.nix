@@ -197,8 +197,8 @@ in {
     terminal = "tmux-256color";
     clock24 = true;
     extraConfig = ''
-      # split panes using | and -
-      bind | split-window -h
+      # split panes using \ and -
+      bind \\ split-window -h
       bind - split-window -v
       unbind '"'
       unbind %
