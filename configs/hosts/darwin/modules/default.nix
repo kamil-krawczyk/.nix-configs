@@ -52,6 +52,7 @@ in {
       "cocoapods"
       "fd"
       "go"
+      "gopls"
       "iproute2mac"
       "lrzsz"
       "mas"
@@ -60,10 +61,12 @@ in {
       "ripgrep"
       "ruby"
       "sevenzip"
+      "solargraph"
       "wget"
       "zssh"
     ];
     casks = [
+      "cursor-cli"
       "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
