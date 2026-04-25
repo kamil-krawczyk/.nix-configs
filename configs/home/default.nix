@@ -188,21 +188,11 @@ in {
 
   programs.tmux = {
     enable = true;
-    shortcut = "a";
-    keyMode = "vi";
-    customPaneNavigationAndResize = true;
     mouse = true;
-    newSession = true;
     secureSocket = true;
     terminal = "tmux-256color";
     clock24 = true;
     extraConfig = ''
-      # split panes using \ and -
-      bind \\ split-window -h
-      bind - split-window -v
-      unbind '"'
-      unbind %
-
       # don't rename windows automatically
       set-option -g allow-rename off
 
