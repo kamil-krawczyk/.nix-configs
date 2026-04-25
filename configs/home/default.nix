@@ -21,9 +21,6 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history.ignoreAllDups = true;
-      initContent = ''
-        bindkey '^[[1;2C' forward-word
-      '';
       shellAliases = {
         l = "eza";
         ls = "eza";
@@ -131,6 +128,7 @@ in {
     # Dart). Neovim uses Node from Homebrew; dartls uses `dart` on PATH.
     extraPackages = with pkgs; [
       pyright
+      nixd
       clang-tools
       marksman
       bash-language-server
@@ -147,6 +145,11 @@ in {
       set spelllang=en,pl
     '';
     initLua = ''
+      local is_vscode = vim.g.vscode == 1 or vim.g.vscode == true
+      if is_vscode then
+        return
+      end
+
       local function setup_lsp(server, opts)
         local ok_config = pcall(vim.lsp.config, server, opts or {})
         local ok_enable = pcall(vim.lsp.enable, server)
@@ -157,6 +160,7 @@ in {
       end
 
       setup_lsp("gopls")
+      setup_lsp("nixd")
       setup_lsp("dartls")
       setup_lsp("pyright")
       setup_lsp("solargraph")
@@ -199,5 +203,15 @@ in {
       # reload config file (change file location to your the tmux.conf you want to use)
       bind r source-file ~/.config/tmux/tmux.conf
     '';
+  };
+
+  ### ghostty #################################################################
+
+  programs.ghostty = {
+    enable = true;
+    package = null;
+    settings = {
+      "macos-option-as-alt" = true;
+    };
   };
 }
