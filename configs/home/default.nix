@@ -63,6 +63,49 @@ in {
     };
   };
 
+  ### git #####################################################################
+
+  home.file.".ssh/allowed_signers".text = "${userConfig.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = userConfig.fullName;
+        email = userConfig.email;
+      };
+      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+      init.defaultBranch = "main";
+      merge.conflictstyle = "zdiff3";
+    };
+    signing = {
+      format = "ssh";
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
+  };
+
+  ### delta ###################################################################
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      side-by-side = true;
+    };
+  };
+
+  ### direnv ##################################################################
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   ### neovim ##################################################################
 
   home.sessionVariables = {
@@ -141,46 +184,30 @@ in {
     '';
   };
 
-  ### git #####################################################################
+  ### tmux ####################################################################
 
-  home.file.".ssh/allowed_signers".text = "${userConfig.email} namespaces=\"git\" ${builtins.readFile "${sshPubKeyPath}"}";
-
-  programs.git = {
+  programs.tmux = {
     enable = true;
-    settings = {
-      user = {
-        name = userConfig.fullName;
-        email = userConfig.email;
-      };
-      gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      init.defaultBranch = "main";
-      merge.conflictstyle = "zdiff3";
-    };
-    signing = {
-      format = "ssh";
-      key = "~/.ssh/id_ed25519.pub";
-      signByDefault = true;
-    };
-  };
+    shortcut = "a";
+    keyMode = "vi";
+    customPaneNavigationAndResize = true;
+    mouse = true;
+    newSession = true;
+    secureSocket = true;
+    terminal = "tmux-256color";
+    clock24 = true;
+    extraConfig = ''
+      # split panes using | and -
+      bind | split-window -h
+      bind - split-window -v
+      unbind '"'
+      unbind %
 
-  ### delta ###################################################################
+      # don't rename windows automatically
+      set-option -g allow-rename off
 
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
-    options = {
-      navigate = true;
-      line-numbers = true;
-      side-by-side = true;
-    };
-  };
-
-  ### direnv ##################################################################
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
+      # reload config file (change file location to your the tmux.conf you want to use)
+      bind r source-file ~/.config/tmux/tmux.conf
+    '';
   };
 }
