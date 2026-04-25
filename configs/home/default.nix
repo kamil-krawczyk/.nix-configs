@@ -83,13 +83,12 @@ in {
       nvim-web-devicons
       nvim-tree-lua
     ];
-    # gopls, solargraph, Dart SDK: from Homebrew (see darwin `homebrew`; Flutter
-    # cask bundles Dart). dartls uses `dart` on PATH.
+    # Homebrew packages: gopls, solargraph, node, Dart SDK (Flutter cask bundles
+    # Dart). Neovim uses Node from Homebrew; dartls uses `dart` on PATH.
     extraPackages = with pkgs; [
       pyright
       clang-tools
       marksman
-      nodejs
       bash-language-server
       typescript-language-server
       vscode-langservers-extracted

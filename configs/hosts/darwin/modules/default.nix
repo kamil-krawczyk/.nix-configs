@@ -56,6 +56,7 @@ in {
       "iproute2mac"
       "lrzsz"
       "mas"
+      "node"
       "podman"
       "qemu"
       "ripgrep"
