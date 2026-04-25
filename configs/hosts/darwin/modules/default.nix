@@ -25,22 +25,11 @@ in {
 
   ### editor ##################################################################
 
-  environment.variables.EDITOR = "hx";
+  environment.variables.EDITOR = "nvim";
 
   ### system ##################################################################
 
   security.pam.services.sudo_local.touchIdAuth = true;
-
-  ### packages ################################################################
-
-  environment.systemPackages = with pkgs; [
-    git
-    helix
-    tmux
-
-    cocoapods
-    ruby
-  ];
 
   ### homebrew ################################################################
 
@@ -60,6 +49,7 @@ in {
     brews = [
       "bat"
       "btop"
+      "cocoapods"
       "fd"
       "go"
       "iproute2mac"
@@ -68,6 +58,7 @@ in {
       "podman"
       "qemu"
       "ripgrep"
+      "ruby"
       "sevenzip"
       "wget"
       "zssh"
@@ -76,8 +67,8 @@ in {
       "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
+      "ghostty"
       "google-chrome"
-      "iterm2"
       "libreoffice"
       "logi-options+"
       "tunnelblick"
@@ -96,6 +87,15 @@ in {
   nix.enable = false;
 
   nixpkgs.config.allowUnfree = true;
+  # Temporary workaround for direnv build issue:
+  # https://github.com/NixOS/nixpkgs/issues/502464
+  nixpkgs.overlays = [
+    (_: prev: {
+      direnv = prev.direnv.overrideAttrs (_: {
+        doCheck = false;
+      });
+    })
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
