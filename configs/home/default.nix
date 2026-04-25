@@ -209,6 +209,7 @@ in {
 
   programs.ghostty = {
     enable = true;
+    # Ghostty is installed via Homebrew; only manage settings, not the binary.
     package = null;
     settings = {
       "macos-option-as-alt" = true;
