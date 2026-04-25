@@ -81,6 +81,7 @@ in {
       nvim-treesitter
       nvim-lspconfig
       nvim-web-devicons
+      bufferline-nvim
       nvim-tree-lua
     ];
     # Homebrew packages: gopls, solargraph, node, Dart SDK (Flutter cask bundles
@@ -125,6 +126,13 @@ in {
       setup_lsp("cssls")
       setup_lsp("bashls", {
         filetypes = { "sh", "bash" },
+      })
+
+      require("bufferline").setup({
+        options = {
+          always_show_bufferline = false,
+          separator_style = "thin",
+        },
       })
 
       require("nvim-tree").setup({})
