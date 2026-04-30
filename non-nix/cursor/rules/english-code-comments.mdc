@@ -1,0 +1,41 @@
+---
+description: One primary language for code symbols and dev-facing text; align strings with i18n
+alwaysApply: true
+---
+
+# Language in code and comments
+
+When you write, edit, or generate **source code**, follow a **single primary
+language** for everything developers read in the repo (identifiers, comments,
+docstrings, commit-facing messages in code). Unless the project states otherwise,
+treat that primary language as **English**.
+
+## Identifiers
+
+Use the primary language for **packages, types, functions, variables,
+constants, and parameters**. Avoid mixing unrelated natural languages in the
+same module without a documented reason (e.g. wrapping a vendor API whose names
+are fixed).
+
+## Comments and in-repo documentation
+
+Use the primary language for **line comments, block comments, doc comments, and
+TODO/FIXME notes** so reviews and onboarding stay consistent.
+
+## String literals
+
+- **Developer- or API-facing** text (error codes, log messages meant for
+  operators, machine-oriented payloads, public API examples): use the primary
+  language unless the contract requires a specific locale or format.
+- **End-user UI copy**: follow the product’s **localization strategy** (e.g.
+  resource bundles, translation keys) instead of hard-coding mixed languages in
+  random call sites. If the app is single-locale by design, match that product
+  decision.
+- **Quoted third-party text, legal snippets, or spec-prescribed wording** may
+  stay as required by source material.
+
+## Chat with the author
+
+Natural-language explanations in conversation may use **any language** the
+author prefers; the **codebase conventions above** still apply to produced or
+edited source.

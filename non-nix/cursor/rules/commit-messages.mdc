@@ -1,0 +1,82 @@
+---
+description: Git commit messages — English, Conventional Commits, short subject, body for what/why
+alwaysApply: true
+---
+
+# Commit messages
+
+All commit messages must be written in **English** (subject and body).
+
+Clear messages help future readers see **what** changed and **why**, make selective
+reverts easier, and support release notes. Avoid vague subjects like “Tweaked a
+few things”.
+
+## Conventional Commits (recommended)
+
+Use this shape when it fits the change:
+
+```
+<type>[optional scope]: <Description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+- **type** (pick one): `feat`, `fix`, `refactor`, `chore`, `perf`, `ci`, `ops`,
+  `build`, `docs`, `style`, `revert`, `test`
+- **scope** (optional): area of the codebase, e.g. `feat(api): Add rate limit`
+- **Description**: short imperative summary after the colon; **capitalize** the
+  first word of the description (e.g. `feat: Add unit tests for user auth`).
+
+Common types: `feat` (new feature), `fix` (bug fix), `refactor` (restructure
+without fixing or adding behavior), `chore` (deps, tooling, misc), `perf`
+(performance), `ci` (CI config), `ops` (infra, deploy, backup, recovery),
+`build` (build system, pipeline, version bumps), `docs` (documentation),
+`style` (formatting only), `revert`, `test` (add or fix tests).
+
+## Subject line (first line)
+
+- **Length**: keep the subject to **about 50 characters**; treat that as the
+  target so `git log --oneline` and UIs do not truncate it. Avoid going past
+  **~72 characters** on the first line.
+- **Mood**: **imperative** — write as a command (“Add handler”, “Fix race”), not
+  past tense (“Added”, “Fixed”) or third person (“Adds”).
+- **Capitalization**: capitalize the description (after `type:` or
+  `type(scope):`).
+- **Punctuation**: do not end the subject with a period.
+
+## Body (optional, after a blank line)
+
+- Use the body to explain **what** changed and **why** — not only how the code
+  does it line by line.
+- Put rationale, breaking changes, migration notes, and issue references here.
+- Separate the subject from the body with **one blank line**.
+- Wrap body lines at **~72 characters** where reasonable.
+
+## Examples
+
+Good (Conventional Commits):
+
+```
+feat(auth): Add password reset flow
+
+Users could not recover accounts without admin help. This adds email-based
+reset with expiring tokens and rate limiting on the reset endpoint.
+```
+
+Good (plain imperative, no type prefix):
+
+```
+Fix duplicate dispatch for ALL header
+
+Registering HeaderAll no longer stores the handler under the "ALL" map key,
+so Handle does not invoke the global handler twice when the message header
+is literally "ALL".
+```
+
+Bad subject (vague and too long):
+
+```
+fixed stuff and also updated the tests for the dispatcher and queue
+```
