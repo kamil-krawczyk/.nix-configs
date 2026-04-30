@@ -1,0 +1,30 @@
+---
+description: Global Go package selection rules
+alwaysApply: true
+---
+
+# Golang Rules
+
+Use these packages by default in Go projects for the listed purposes:
+
+- Logging: `charm.land/log/v2`
+- CLI argument parsing: `github.com/spf13/pflag`
+- Configuration files and env loading: `github.com/spf13/viper`
+- CLI app structure and commands: `github.com/spf13/cobra`
+- Serial port communication: `go.bug.st/serial`
+- NMEA (GPS) parsing: `github.com/adrianmo/go-nmea`
+- Web framework: `github.com/gin-gonic/gin`
+- WebSockets: `github.com/gorilla/websocket`
+- TUI: `github.com/charmbracelet/lipgloss` and `github.com/charmbracelet/bubbletea`
+
+CLI and config handling rules:
+
+- If a program has command-line switches, use `github.com/spf13/cobra` for command/flag handling.
+- Disable Cobra flag auto-sorting with `cobra.Command.Flags().SortFlags = false`.
+- Keep flags intentionally ordered in logical groups, from most important/user-facing options to least significant/advanced options.
+- Regardless of whether a config file is used, map all runtime options (flags/env/config) into a single `Config` struct with explicit `mapstructure` tags.
+- When binding flags into Viper, iterate over all flags with `Flags().VisitAll(...)` and bind them in the loop.
+- In that `VisitAll` loop, explicitly skip flags related to config-file handling (for example `config`, `write-config`, or equivalent file-path/save-config flags) so only runtime options are mapped into the runtime config model.
+- If a config file is used, values passed via command-line flags must always override values from the config file.
+
+If another package is proposed, explain why and ask before changing these defaults.

@@ -17,13 +17,62 @@ in {
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
+  ### nix, nixpkgs, home-manager ##############################################
+
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+
+  # Determinate manages the Nix installation itself
+  # (https://github.com/DeterminateSystems/nix-installer)
+  nix.enable = false;
+
+  nixpkgs.config.allowUnfree = true;
+  # Temporary workaround for direnv build issue:
+  # https://github.com/NixOS/nixpkgs/issues/502464
+  nixpkgs.overlays = [
+    (_: prev: {
+      direnv = prev.direnv.overrideAttrs (_: {
+        doCheck = false;
+      });
+    })
+  ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {
+      inherit inputs outputs;
+      userConfig = config.user;
+    };
+  };
+
+  ### users ###################################################################
+
+  system.primaryUser = config.user.name;
+
+  users.users.${config.user.name} = {
+    name = config.user.name;
+    home = config.user.homeDirectory;
+    description = config.user.fullName;
+  };
+
+  home-manager.users.${config.user.name} = {
+    home = {
+      username = config.user.name;
+      homeDirectory = config.user.homeDirectory;
+    };
+    imports = [
+      ../../../home
+      ../../../home/${config.user.name}
+    ];
+  };
+
   ### shell ###################################################################
 
   programs.bash.enable = true;
   programs.zsh.enable = true;
   environment.shells = [pkgs.zsh];
 
-  ### editor ##################################################################
+  ### environment variables ####################################################
 
   environment.variables.EDITOR = "nvim";
 
@@ -79,55 +128,6 @@ in {
       "utm"
       "wacom-tablet"
       "xquartz"
-    ];
-  };
-
-  ### nix, nixpkgs, home-manager ##############################################
-
-  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-
-  # Determinate manages the Nix installation itself
-  # (https://github.com/DeterminateSystems/nix-installer)
-  nix.enable = false;
-
-  nixpkgs.config.allowUnfree = true;
-  # Temporary workaround for direnv build issue:
-  # https://github.com/NixOS/nixpkgs/issues/502464
-  nixpkgs.overlays = [
-    (_: prev: {
-      direnv = prev.direnv.overrideAttrs (_: {
-        doCheck = false;
-      });
-    })
-  ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit inputs outputs;
-      userConfig = config.user;
-    };
-  };
-
-  ### users ###################################################################
-
-  system.primaryUser = config.user.name;
-
-  users.users.${config.user.name} = {
-    name = config.user.name;
-    home = config.user.homeDirectory;
-    description = config.user.fullName;
-  };
-
-  home-manager.users.${config.user.name} = {
-    home = {
-      username = config.user.name;
-      homeDirectory = config.user.homeDirectory;
-    };
-    imports = [
-      ../../../home
-      ../../../home/${config.user.name}
     ];
   };
 }

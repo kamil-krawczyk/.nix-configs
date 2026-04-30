@@ -6,6 +6,10 @@
   ...
 }: let
   sshPubKeyPath = "${inputs.self}/configs/home/${userConfig.name}/id_ed25519.pub";
+  cursorSettingsPath =
+    if pkgs.stdenv.isDarwin
+    then "Library/Application Support/Cursor/User/settings.json"
+    else ".config/Cursor/User/settings.json";
 in {
   ### shell ###################################################################
 
@@ -31,33 +35,48 @@ in {
         tree = "eza -T";
       };
     };
+  };
 
-    eza = {
-      enable = true;
-      enableBashIntegration = false;
-      enableZshIntegration = true;
-      git = true;
-      colors = "auto";
-      icons = "auto";
-      extraOptions = [
-        "--group"
-        "--group-directories-first"
-        "--mounts"
-      ];
-    };
+  ### direnv ##################################################################
 
-    fzf = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-    };
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
-    oh-my-posh = {
-      enable = true;
-      enableBashIntegration = false;
-      enableZshIntegration = true;
-      useTheme = "ys";
-    };
+  ### eza ######################################################################
+
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = false;
+    enableZshIntegration = true;
+    git = true;
+    colors = "auto";
+    icons = "auto";
+    extraOptions = [
+      "--group"
+      "--group-directories-first"
+      "--mounts"
+    ];
+  };
+
+  ### fzf #####################################################################
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  ### oh-my-posh ###############################################################
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableBashIntegration = false;
+    enableZshIntegration = true;
+    useTheme = "ys";
   };
 
   ### git #####################################################################
@@ -92,15 +111,6 @@ in {
       line-numbers = true;
       side-by-side = true;
     };
-  };
-
-  ### direnv ##################################################################
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
   };
 
   ### neovim ##################################################################
@@ -237,5 +247,16 @@ in {
     settings = {
       "macos-option-as-alt" = true;
     };
+  };
+
+  ### cursor ##################################################################
+
+  home.file = {
+    # settings
+    "${cursorSettingsPath}".source = "${inputs.self}/configs/home/cursor/settings.json";
+    # rules
+    ".cursor/rules/commit-messages.mdc".source = "${inputs.self}/configs/home/cursor/rules/commit-messages.mdc";
+    ".cursor/rules/english-code-comments.mdc".source = "${inputs.self}/configs/home/cursor/rules/english-code-comments.mdc";
+    ".cursor/rules/golang-rules.mdc".source = "${inputs.self}/configs/home/cursor/rules/golang-rules.mdc";
   };
 }
