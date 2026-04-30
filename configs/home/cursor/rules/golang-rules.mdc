@@ -22,7 +22,8 @@ CLI and config handling rules:
 - If a program has command-line switches, use `github.com/spf13/cobra` for command/flag handling.
 - Disable Cobra flag auto-sorting with `cobra.Command.Flags().SortFlags = false`.
 - Keep flags intentionally ordered in logical groups, from most important/user-facing options to least significant/advanced options.
-- Regardless of whether a config file is used, map all runtime options (flags/env/config) into a single `Config` struct with explicit `mapstructure` tags.
+- Regardless of whether a config file is used, map all runtime options (flags/env/config) into a single `config` struct with explicit `mapstructure` tags.
+- For nested runtime config fields, use dot notation in option keys (for example `log.enable`, `log.level`) so they map predictably to nested structs (for example `type LogConfig struct { Enable bool; Level string }`).
 - When binding flags into Viper, iterate over all flags with `Flags().VisitAll(...)` and bind them in the loop.
 - In that `VisitAll` loop, explicitly skip flags related to config-file handling (for example `config`, `write-config`, or equivalent file-path/save-config flags) so only runtime options are mapped into the runtime config model.
 - If a config file is used, values passed via command-line flags must always override values from the config file.
