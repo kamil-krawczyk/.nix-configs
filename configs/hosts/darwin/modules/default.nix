@@ -116,7 +116,6 @@ in {
       "zssh"
     ];
     casks = [
-      "cursor-cli"
       "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
