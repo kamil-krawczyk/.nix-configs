@@ -11,6 +11,16 @@
     then "Library/Application Support/Cursor/User/settings.json"
     else ".config/Cursor/User/settings.json";
 in {
+  ### session #################################################################
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
+  ];
+
   ### shell ###################################################################
 
   programs = {
@@ -114,10 +124,6 @@ in {
   };
 
   ### neovim ##################################################################
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 
   programs.neovim = {
     enable = true;
@@ -242,8 +248,11 @@ in {
 
   programs.ghostty = {
     enable = true;
-    # Ghostty is installed via Homebrew; only manage settings, not the binary.
-    package = null;
+    # On Darwin Ghostty is installed via Homebrew; elsewhere use Nixpkgs.
+    package =
+      if pkgs.stdenv.isDarwin
+      then null
+      else pkgs.ghostty;
     settings = {
       "macos-option-as-alt" = true;
     };
