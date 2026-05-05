@@ -138,6 +138,7 @@ in {
       nvim-lspconfig
       nvim-web-devicons
       bufferline-nvim
+      gitsigns-nvim
       nvim-tree-lua
       indent-blankline-nvim
     ];
@@ -221,6 +222,7 @@ in {
       require("ibl").setup({
         indent = { highlight = indent_highlight },
       })
+      require("gitsigns").setup({})
       require("nvim-tree").setup({})
       vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>s", "<cmd>set spell!<CR>", { noremap = true, silent = true })

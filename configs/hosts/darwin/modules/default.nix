@@ -116,6 +116,7 @@ in {
       "zssh"
     ];
     casks = [
+      "android-studio"
       "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
