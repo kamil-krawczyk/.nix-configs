@@ -257,6 +257,7 @@ in {
       else pkgs.ghostty;
     settings = {
       "macos-option-as-alt" = true;
+      theme = "dark:Ghostty Default Style Dark,light:Github";
     };
   };
 
