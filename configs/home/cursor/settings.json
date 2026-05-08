@@ -10,5 +10,6 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "cursor.cpp.enablePartialAccepts": true
 }
