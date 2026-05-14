@@ -146,7 +146,6 @@ in {
     # Dart). Neovim uses Node from Homebrew; dartls uses `dart` on PATH.
     extraPackages = with pkgs; [
       pyright
-      nixd
       clang-tools
       marksman
       bash-language-server
@@ -271,4 +270,10 @@ in {
     ".cursor/rules/english-code-comments.mdc".source = "${inputs.self}/configs/home/cursor/rules/english-code-comments.mdc";
     ".cursor/rules/golang-rules.mdc".source = "${inputs.self}/configs/home/cursor/rules/golang-rules.mdc";
   };
+
+  ### packages #################################################################
+
+  home.packages = with pkgs; [
+    nixd
+  ];
 }
