@@ -128,6 +128,7 @@ in {
       "font-jetbrains-mono-nerd-font"
       "ghostty"
       "google-chrome"
+      "kiro"
       "libreoffice"
       "logi-options+"
       "tunnelblick"
