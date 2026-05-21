@@ -26,15 +26,15 @@ in {
   nix.enable = false;
 
   nixpkgs.config.allowUnfree = true;
-  # Temporary workaround for direnv build issue:
-  # https://github.com/NixOS/nixpkgs/issues/502464
-  nixpkgs.overlays = [
-    (_: prev: {
-      direnv = prev.direnv.overrideAttrs (_: {
-        doCheck = false;
-      });
-    })
-  ];
+  # # Temporary workaround for direnv build issue:
+  # # https://github.com/NixOS/nixpkgs/issues/502464
+  # nixpkgs.overlays = [
+  #   (_: prev: {
+  #     direnv = prev.direnv.overrideAttrs (_: {
+  #       doCheck = false;
+  #     });
+  #   })
+  # ];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -105,12 +105,14 @@ in {
       "bat"
       "btop"
       "cocoapods"
+      "docker"
       "fd"
       "go"
       "gopls"
       "iproute2mac"
       "lrzsz"
       "mas"
+      "neovim"
       "node"
       "podman"
       "qemu"
