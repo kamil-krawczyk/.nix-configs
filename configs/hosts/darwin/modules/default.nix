@@ -117,7 +117,6 @@ in {
     ];
     casks = [
       "android-studio"
-      "cursor"
       "flutter"
       "font-jetbrains-mono-nerd-font"
       "ghostty"
