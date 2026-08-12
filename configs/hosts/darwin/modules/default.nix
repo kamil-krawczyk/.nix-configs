@@ -126,6 +126,7 @@ in {
       "kiro"
       "libreoffice"
       "logi-options+"
+      "mactex"
       "tunnelblick"
       "utm"
       "wacom-tablet"
