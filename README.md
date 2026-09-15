@@ -28,6 +28,7 @@ like rather than how to achieve it.
 configurations if something goes wrong.
 * **Multi-user Support:** Nix allows multiple users to have their own isolated
 environments, each with its own set of packages and configurations.
+*(This repository takes advantage of that — see "Adding a user" below.)*
 
 ## What is NixOS?
 
@@ -68,12 +69,25 @@ Please remember to take care of periodic Nix updates in this case:
 After installing Nix and downloading the repository with configuration, the
 first system rebuild should be done using the following command:
 
-    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#<configuration>
+    sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#konoha
 
 Further system rebuilds can be performed directly using the `darwin-rebuild`
 command:
 
-    sudo darwin-rebuild switch --flake .#<configuration>
+    sudo darwin-rebuild switch --flake .#konoha
+
+(replace `konoha` with the name of the host you're building, see `configs/hosts/`)
+
+### Adding a user
+
+Create `configs/home/users/<name>/default.nix` (and an SSH public key next to
+it, if you sign commits like the default user does), then set `user.name` to
+`<name>` for the host that should use it.
+
+### Adding a host
+
+Create `configs/hosts/<hostname>/default.nix` importing `../../modules`, then
+register it under `darwinConfigurations` in `flake.nix`.
 
 # :pray: Acknowledgements
 
