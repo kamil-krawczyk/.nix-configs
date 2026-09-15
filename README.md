@@ -1,9 +1,16 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# :snowflake: Nix-based Host Configurations
+# :snowflake: Nix-based macOS Host Configurations
 
-This repository contains the configuration files for my hosts, managed using the
-Nix package manager.
+This repository contains the configuration files for my macOS machine(s),
+managed using the Nix package manager — [nix-darwin](https://github.com/LnL7/nix-darwin)
+for system-level configuration and [Home Manager](https://github.com/nix-community/home-manager)
+for per-user environments.
+
+> **Scope:** this repository targets **macOS (Darwin) only**. It does not
+> configure NixOS or any Linux host. It can, however, manage several local
+> user accounts on the same machine. The sections below on Nix and NixOS are
+> kept for educational context on the wider ecosystem this project builds on.
 
 ## What is Nix?
 
@@ -30,6 +37,9 @@ a package. This means that everything from the kernel to the system services
 is managed by Nix, providing a level of reproducibility and control that is
 unmatched by other Linux distributions.
 
+*(This repository does not configure NixOS itself — it's mentioned here only
+for context, since Nix-Darwin below borrows heavily from its module system.)*
+
 ## What is Nix-Darwin?
 
 Nix-Darwin is a tool that brings the benefits of Nix to macOS. It allows you to
@@ -41,7 +51,7 @@ Home Manager is a tool that allows you to manage your user environment
 using Nix. It can be used to manage your dotfiles, applications, and other
 user-specific settings.
 
-# :pencil: :apple: Notes on Darwin hosts
+# :pencil: :apple: Setup & Usage Notes
 
 I install the Nix package manager on Darwin systems using the graphical
 [Determinate Nix Installer](https://docs.determinate.systems).

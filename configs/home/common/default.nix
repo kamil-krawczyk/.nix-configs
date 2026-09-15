@@ -85,7 +85,7 @@
 
   ### git #####################################################################
 
-  home.file.".ssh/allowed_signers".text = "${userConfig.email} namespaces=\"git\" ${builtins.readFile "${inputs.self}/configs/home/${userConfig.name}/id_ed25519.pub"}";
+  home.file.".ssh/allowed_signers".text = "${userConfig.email} namespaces=\"git\" ${builtins.readFile "${inputs.self}/configs/home/users/${userConfig.name}/id_ed25519.pub"}";
 
   programs.git = {
     enable = true;
@@ -216,24 +216,9 @@
     clock24 = true;
   };
 
-  ### ghostty #################################################################
-
-  programs.ghostty = {
-    enable = true;
-    # On Darwin Ghostty is installed via Homebrew; elsewhere use Nixpkgs.
-    package =
-      if pkgs.stdenv.isDarwin
-      then null
-      else pkgs.ghostty;
-    settings = {
-      "macos-option-as-alt" = true;
-      theme = "dark:Ghostty Default Style Dark,light:Github";
-    };
-  };
-
   ### kiro #####################################################################
 
-  home.file.".kiro/steering/language-policy.md".source = "${inputs.self}/configs/home/kiro/steering/language-policy.md";
+  home.file.".kiro/steering/language-policy.md".source = "${inputs.self}/configs/home/common/kiro/steering/language-policy.md";
 
   ### packages #################################################################
 

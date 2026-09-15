@@ -1,6 +1,6 @@
 {config, ...}: {
   imports = [
-    ../modules
+    ../../modules
   ];
 
   networking = {

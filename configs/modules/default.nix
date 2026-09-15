@@ -9,9 +9,10 @@
     if config.nixpkgs.hostPlatform == "aarch64-darwin"
     then true
     else false;
+  homeDirectory = "/Users/${config.user.name}";
 in {
   imports = [
-    ../../../options.nix
+    ../options.nix
     inputs.home-manager.darwinModules.home-manager
     inputs.mac-app-util.darwinModules.default
     inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -52,18 +53,18 @@ in {
 
   users.users.${config.user.name} = {
     name = config.user.name;
-    home = config.user.homeDirectory;
+    home = homeDirectory;
     description = config.user.fullName;
   };
 
   home-manager.users.${config.user.name} = {
     home = {
       username = config.user.name;
-      homeDirectory = config.user.homeDirectory;
+      homeDirectory = homeDirectory;
     };
     imports = [
-      ../../../home
-      ../../../home/${config.user.name}
+      ../home/common
+      ../home/users/${config.user.name}
     ];
   };
 
@@ -118,15 +119,12 @@ in {
     ];
     casks = [
       "android-studio"
-      "compositor"
+      "claude-code"
       "flutter"
       "font-jetbrains-mono-nerd-font"
-      "ghostty"
       "google-chrome"
       "kiro"
-      "libreoffice"
       "logi-options+"
-      "mactex"
       "tunnelblick"
       "utm"
       "wacom-tablet"

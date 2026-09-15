@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    systems.url = "github:nix-systems/default";
+    systems.url = "github:nix-systems/default-darwin";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -49,7 +49,7 @@
       inputs.nix-darwin.lib.darwinSystem {
         inherit system;
         specialArgs = {inherit self inputs outputs;};
-        modules = [./configs/hosts/darwin/${hostname}];
+        modules = [./configs/hosts/${hostname}];
       };
   in {
     devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
