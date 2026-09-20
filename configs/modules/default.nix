@@ -27,15 +27,6 @@ in {
   nix.enable = false;
 
   nixpkgs.config.allowUnfree = true;
-  # # Temporary workaround for direnv build issue:
-  # # https://github.com/NixOS/nixpkgs/issues/502464
-  # nixpkgs.overlays = [
-  #   (_: prev: {
-  #     direnv = prev.direnv.overrideAttrs (_: {
-  #       doCheck = false;
-  #     });
-  #   })
-  # ];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -111,7 +102,6 @@ in {
       "lrzsz"
       "mas"
       "podman"
-      "qemu"
       "ripgrep"
       "sevenzip"
       "wget"
@@ -119,16 +109,13 @@ in {
     ];
     casks = [
       "android-studio"
-      "claude-code"
       "flutter"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "kiro"
       "logi-options+"
       "tunnelblick"
-      "utm"
       "wacom-tablet"
-      "xquartz"
     ];
   };
 }
