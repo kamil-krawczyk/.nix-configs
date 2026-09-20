@@ -113,6 +113,7 @@ in {
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "kiro"
+      "kiro-cli"
       "logi-options+"
       "tunnelblick"
       "wacom-tablet"
