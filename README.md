@@ -7,10 +7,10 @@ managed using the Nix package manager — [nix-darwin](https://github.com/LnL7/n
 for system-level configuration and [Home Manager](https://github.com/nix-community/home-manager)
 for per-user environments.
 
-> **Scope:** this repository targets **macOS (Darwin) only**. It does not
-> configure NixOS or any Linux host. It can, however, manage several local
-> user accounts on the same machine. The sections below on Nix and NixOS are
-> kept for educational context on the wider ecosystem this project builds on.
+> **Scope:** this repository configures **macOS hosts** with nix-darwin and
+> **Linux distributions** (non-NixOS) with standalone Home Manager. It does not
+> configure NixOS itself. The sections below on Nix and NixOS are kept for
+> educational context on the wider ecosystem this project builds on.
 
 ## What is Nix?
 
@@ -78,16 +78,40 @@ command:
 
 (replace `konoha` with the name of the host you're building, see `configs/hosts/`)
 
-### Adding a user
+On Linux (e.g. `ame`, a work PC running Ubuntu), Home Manager runs standalone.
+The first activation:
 
-Create `configs/home/users/<name>/default.nix` (and an SSH public key next to
-it, if you sign commits like the default user does), then set `user.name` to
-`<name>` for the host that should use it.
+    nix run home-manager/master -- switch --flake .#kamil@ame
+
+Further activations:
+
+    home-manager switch --flake .#kamil@ame
+
+### Layout
+
+    configs/
+      modules/
+        darwin/     # nix-darwin modules shared by all Macs
+        home/       # Home Manager modules shared by all homes
+      profiles/
+        darwin/     # per-role macOS settings (e.g. casks): personal, work
+        home/       # per-role home settings (identity, SSH key, feature toggles)
+      hosts/        # nix-darwin machines (konoha: personal, kiri: work)
+      homes/        # standalone Home Manager machines (ame: work PC, Ubuntu)
+
+Base modules are always active. Optional features are switched on with
+`my.<feature>.enable` (e.g. `my.kiro.enable`), usually from a home profile.
+On macOS, `my.kiro.enable` also installs the Kiro cask.
 
 ### Adding a host
 
-Create `configs/hosts/<hostname>/default.nix` importing `../../modules`, then
-register it under `darwinConfigurations` in `flake.nix`.
+* macOS: create `configs/hosts/<hostname>/default.nix` importing
+  `../../modules/darwin` and a darwin profile, import a home profile under
+  `home-manager.users.${config.my.user.name}`, then register it under
+  `darwinConfigurations` in `flake.nix`.
+* Linux: create `configs/homes/<hostname>/default.nix` importing
+  `../../modules/home` and a home profile, then register it under
+  `homeConfigurations` in `flake.nix` as `"<user>@<hostname>"`.
 
 # :pray: Acknowledgements
 

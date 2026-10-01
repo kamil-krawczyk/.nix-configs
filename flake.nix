@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    systems.url = "github:nix-systems/default-darwin";
+    systems.url = "github:nix-systems/default";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -54,13 +54,28 @@
         specialArgs = {inherit self inputs outputs;};
         modules = [./configs/hosts/${hostname}];
       };
+
+    configureHome = name: system:
+      lib.homeManagerConfiguration {
+        pkgs = pkgsFor.${system};
+        extraSpecialArgs = {inherit self inputs outputs;};
+        modules = [./configs/homes/${name}];
+      };
   in {
     devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     darwinConfigurations = {
-      # MacBook Pro M4 Pro
+      # MacBook Pro M4 Pro (personal)
       konoha = configureDarwin "konoha" "aarch64-darwin";
+
+      # MacBook Neo (work)
+      kiri = configureDarwin "kiri" "aarch64-darwin";
+    };
+
+    homeConfigurations = {
+      # Work PC, Ubuntu (standalone Home Manager)
+      "kamil@ame" = configureHome "ame" "x86_64-linux";
     };
   };
 }

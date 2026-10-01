@@ -1,21 +1,21 @@
-# MacBook Pro M4 Pro (personal)
+# MacBook Neo (work)
 {config, ...}: {
   imports = [
     ../../modules/darwin
-    ../../profiles/darwin/personal.nix
+    ../../profiles/darwin/work.nix
   ];
 
   home-manager.users.${config.my.user.name} = {
-    imports = [../../profiles/home/personal];
-    home.stateVersion = "25.11";
+    imports = [../../profiles/home/work];
+    home.stateVersion = "26.11";
   };
 
   networking = {
-    computerName = "konoha";
+    computerName = "kiri";
     hostName = config.networking.computerName;
   };
 
-  system.stateVersion = 6;
+  system.stateVersion = 7;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
