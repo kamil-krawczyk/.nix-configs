@@ -1,3 +1,5 @@
+# Neovim as the default editor, with plugins and LSP setup.
+# LSP servers are not installed here; missing ones are reported with a warning.
 {pkgs, ...}: {
   programs.neovim = {
     enable = true;

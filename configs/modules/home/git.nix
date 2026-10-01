@@ -1,3 +1,5 @@
+# Git with SSH commit signing and delta as the pager.
+# Author and signing key come from `my.identity` (see identity.nix).
 {config, ...}: let
   identity = config.my.identity;
 in {

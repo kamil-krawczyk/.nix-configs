@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    systems.url = "github:nix-systems/default";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,9 +36,17 @@
     inherit (self) outputs;
     lib = inputs.nixpkgs.lib // inputs.home-manager.lib;
 
-    forEachSystem = f: lib.genAttrs (import inputs.systems) (system: f pkgsFor.${system});
+    # Platforms supported by this flake. x86_64-darwin is left out, because
+    # nixpkgs no longer supports it.
+    systems = [
+      "aarch64-darwin"
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
 
-    pkgsFor = lib.genAttrs (import inputs.systems) (
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+
+    pkgsFor = lib.genAttrs systems (
       system:
         import inputs.nixpkgs {
           inherit system;
@@ -48,10 +54,14 @@
         }
     );
 
-    configureDarwin = hostname: system:
+    # Extra arguments passed to every module (nix-darwin and Home Manager).
+    # The flake itself is available as `inputs.self`.
+    specialArgs = {inherit inputs outputs;};
+
+    # The platform comes from `nixpkgs.hostPlatform` in the host file.
+    configureDarwin = hostname:
       inputs.nix-darwin.lib.darwinSystem {
-        inherit system;
-        specialArgs = {inherit self inputs outputs;};
+        inherit specialArgs;
         modules = [./configs/hosts/${hostname}];
       };
 
@@ -60,7 +70,7 @@
     configureHome = name: system:
       lib.homeManagerConfiguration {
         pkgs = pkgsFor.${system};
-        extraSpecialArgs = {inherit self inputs outputs;};
+        extraSpecialArgs = specialArgs;
         modules = [./configs/homes/${name}];
       };
   in {
@@ -69,10 +79,10 @@
 
     darwinConfigurations = {
       # MacBook Pro M4 Pro (personal)
-      konoha = configureDarwin "konoha" "aarch64-darwin";
+      konoha = configureDarwin "konoha";
 
       # MacBook Neo (work)
-      kiri = configureDarwin "kiri" "aarch64-darwin";
+      kiri = configureDarwin "kiri";
     };
 
     homeConfigurations = {

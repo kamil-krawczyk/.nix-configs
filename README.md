@@ -172,10 +172,38 @@ and `sshPublicKeyFile`); evaluation fails if any of them is missing.
 
 ## :heavy_plus_sign: Adding a host
 
-* macOS: create `configs/hosts/<hostname>/default.nix` importing
-  `../../modules/darwin` and a darwin profile, declare its users in
-  `my.users` and pick `my.primaryUser` (see "Adding a user" below), then
-  register it under `darwinConfigurations` in `flake.nix`.
+* macOS: create `configs/hosts/<hostname>/default.nix`, then register it
+  under `darwinConfigurations` in `flake.nix` as
+  `<hostname> = configureDarwin "<hostname>";`. The host file imports
+  `../../modules/darwin` and a darwin profile, declares its users (see
+  "Adding a user" below) and sets the host-specific values. The platform is
+  taken only from `nixpkgs.hostPlatform`, so it is required:
+
+  ```nix
+  {config, ...}: {
+    imports = [
+      ../../modules/darwin
+      ../../profiles/darwin/work.nix
+    ];
+
+    my.primaryUser = "kamil";
+
+    my.users.kamil = {
+      profiles = [../../profiles/home/work];
+      stateVersion = "26.11"; # Home Manager release current at setup time
+    };
+
+    networking = {
+      computerName = "<hostname>";
+      hostName = config.networking.computerName;
+    };
+
+    system.stateVersion = 7; # nix-darwin release current at setup time
+
+    nixpkgs.hostPlatform = "aarch64-darwin";
+  }
+  ```
+
 * Linux: create `configs/homes/<user>@<hostname>/default.nix` importing
   `../../modules/home` and a home profile, then register it under
   `homeConfigurations` in `flake.nix` as `"<user>@<hostname>"`.

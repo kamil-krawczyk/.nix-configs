@@ -1,3 +1,4 @@
+# Interactive shells (bash, zsh) and the command-line tools integrated with them.
 {
   ### shells ##################################################################
 

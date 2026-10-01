@@ -30,6 +30,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "bak";
+      # Same arguments as standalone Home Manager (see flake.nix).
       extraSpecialArgs = {inherit inputs outputs;};
     };
 
@@ -41,6 +42,9 @@
 
     ### environment variables #################################################
 
+    # System-wide fallback (root, accounts without Home Manager): the vim shipped
+    # with macOS, so no editor has to be installed system-wide. Users managed by
+    # Home Manager override it with Neovim (see configs/modules/home/session.nix).
     environment.variables.EDITOR = "vim";
 
     ### system ################################################################

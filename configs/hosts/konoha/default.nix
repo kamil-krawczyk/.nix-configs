@@ -20,6 +20,4 @@
   system.stateVersion = 6;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-
-  nix.extraOptions = "extra-platforms = x86_64-darwin aarch64-darwin";
 }

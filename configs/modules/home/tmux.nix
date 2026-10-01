@@ -1,3 +1,4 @@
+# Terminal multiplexer.
 {
   programs.tmux = {
     enable = true;

@@ -1,3 +1,4 @@
+# Session environment: default editor, extra PATH entries and general packages.
 {
   config,
   pkgs,
