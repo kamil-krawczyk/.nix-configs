@@ -3,7 +3,6 @@
   options.my.identity = {
     fullName = lib.mkOption {
       type = lib.types.str;
-      default = "Kamil Krawczyk";
       description = "Full name used as the git author.";
     };
     email = lib.mkOption {

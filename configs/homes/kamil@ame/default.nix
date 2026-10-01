@@ -1,4 +1,6 @@
-# ame: work PC running Ubuntu, managed by standalone Home Manager.
+# kamil on ame: work PC running Ubuntu, managed by standalone Home Manager.
+# Each user on a Linux machine has their own `configs/homes/<user>@<host>`
+# and activates it from their own account.
 {
   imports = [
     ../../modules/home

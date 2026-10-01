@@ -55,6 +55,8 @@
         modules = [./configs/hosts/${hostname}];
       };
 
+    # `name` is "<user>@<hostname>", matching the directory in configs/homes
+    # and the name `home-manager switch` looks up by default.
     configureHome = name: system:
       lib.homeManagerConfiguration {
         pkgs = pkgsFor.${system};
@@ -75,7 +77,7 @@
 
     homeConfigurations = {
       # Work PC, Ubuntu (standalone Home Manager)
-      "kamil@ame" = configureHome "ame" "x86_64-linux";
+      "kamil@ame" = configureHome "kamil@ame" "x86_64-linux";
     };
   };
 }

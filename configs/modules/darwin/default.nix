@@ -1,29 +1,19 @@
 # nix-darwin modules shared by every macOS host.
 {
   config,
-  lib,
   pkgs,
   inputs,
   outputs,
   ...
-}: let
-  userName = config.my.user.name;
-  homeDirectory = "/Users/${userName}";
-  hmUser = config.home-manager.users.${userName};
-in {
+}: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
     inputs.mac-app-util.darwinModules.default
     inputs.nix-homebrew.darwinModules.nix-homebrew
 
+    ./users.nix
     ./kiro.nix
   ];
-
-  options.my.user.name = lib.mkOption {
-    type = lib.types.str;
-    default = "kamil";
-    description = "Primary macOS user managed by this configuration.";
-  };
 
   config = {
     ### nix, nixpkgs, home-manager ############################################
@@ -41,24 +31,6 @@ in {
       useUserPackages = true;
       backupFileExtension = "bak";
       extraSpecialArgs = {inherit inputs outputs;};
-    };
-
-    ### users #################################################################
-
-    system.primaryUser = userName;
-
-    users.users.${userName} = {
-      name = userName;
-      home = homeDirectory;
-      description = hmUser.my.identity.fullName;
-    };
-
-    home-manager.users.${userName} = {
-      imports = [../home];
-      home = {
-        username = userName;
-        homeDirectory = homeDirectory;
-      };
     };
 
     ### shell #################################################################
@@ -80,7 +52,8 @@ in {
     nix-homebrew = {
       enable = true;
       enableRosetta = config.nixpkgs.hostPlatform == "aarch64-darwin";
-      user = userName;
+      # Homebrew is system-wide and owned by a single user.
+      user = config.my.primaryUser;
       taps = {
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;

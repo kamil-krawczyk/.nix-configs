@@ -5,9 +5,11 @@
     ../../profiles/darwin/work.nix
   ];
 
-  home-manager.users.${config.my.user.name} = {
-    imports = [../../profiles/home/work];
-    home.stateVersion = "26.11";
+  my.primaryUser = "kamil";
+
+  my.users.kamil = {
+    profiles = [../../profiles/home/work];
+    stateVersion = "26.11";
   };
 
   networking = {
