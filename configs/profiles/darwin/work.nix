@@ -2,6 +2,7 @@
 {
   homebrew.casks = [
     "claude-code"
+    "microsoft-teams"
     "tailscale-app"
     "visual-studio-code"
     "xquartz"
