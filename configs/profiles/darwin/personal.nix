@@ -2,6 +2,7 @@
 {
   homebrew.casks = [
     "android-studio"
+    "antigravity-ide"
     "google-chrome"
     "logi-options+"
     "wacom-tablet"
