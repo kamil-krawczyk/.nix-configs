@@ -164,8 +164,7 @@ keeps the login working even if the Nix profile is broken:
                     # (kamil@ame: work PC, Ubuntu)
 
 Base modules are always active. Optional features are switched on with
-`my.<feature>.enable` (e.g. `my.kiro.enable`), usually from a home profile.
-On macOS, `my.kiro.enable` also installs the Kiro cask.
+`my.<feature>.enable`, usually from a home profile.
 
 A home profile must set the user's identity (`my.identity.fullName`, `email`
 and `sshPublicKeyFile`); evaluation fails if any of them is missing.
@@ -223,8 +222,6 @@ next to it:
     email = "anna@example.com";
     sshPublicKeyFile = ./id_ed25519.pub;
   };
-
-  # my.kiro.enable = true;
 }
 ```
 
@@ -250,8 +247,8 @@ my.users = {
 * `stateVersion` is the Home Manager release current when the user is added,
   and should not be changed later.
 * Homebrew and `system.defaults` are system-wide and applied on behalf of
-  `my.primaryUser`, so casks from darwin profiles (and Kiro, if any user
-  enables it) are installed for everyone on the host.
+  `my.primaryUser`, so casks from darwin profiles are installed for
+  everyone on the host.
 
 Apply it with the usual `sudo darwin-rebuild switch --flake .#<hostname>`.
 

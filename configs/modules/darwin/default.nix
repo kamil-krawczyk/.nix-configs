@@ -12,7 +12,6 @@
     inputs.nix-homebrew.darwinModules.nix-homebrew
 
     ./users.nix
-    ./kiro.nix
   ];
 
   config = {

@@ -8,8 +8,5 @@
     ./git.nix
     ./neovim.nix
     ./tmux.nix
-
-    # Optional features
-    ./kiro
   ];
 }
