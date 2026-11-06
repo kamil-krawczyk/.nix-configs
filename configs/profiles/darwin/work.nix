@@ -2,6 +2,7 @@
 {
   homebrew.casks = [
     "claude-code"
+    "macfuse"
     "microsoft-office"
     "microsoft-teams"
     "tailscale-app"
