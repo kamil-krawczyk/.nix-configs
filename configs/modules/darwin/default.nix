@@ -82,6 +82,7 @@
         "mas"
         "podman"
         "ripgrep"
+        "rsync"
         "sevenzip"
         "wget"
         "zssh"
